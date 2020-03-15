@@ -19,32 +19,29 @@
                 name: 'Akshit',
                 age: 25
             }
-            handleClick(e){
-                console.log("You clicked the button")
+            // setting the name in the state when the value is input in the input field
+            handleChange = (e)=> {
+                this.setState({
+                name: e.target.value
+                })
             }
-            handleMouseOver(e){
-                console.log(e.target, e.pageX)
-            }
-            handleCopy(e){
-                console.log("Try something original once!");
+            // preventing the default behaviour of the submit button
+            // printing the name in console
+            handleSubmit = (e) =>{
+                e.preventDefault();
+                console.log(this.state.name);
             }
             render() {
                 return (
-                    //  Limitations in react only one root element
-                    // class is a reserved key workd in JS thats  why we need to use className in react
-                    // Important thing about State whenever we change the state then the that conponent will rerender itself
-                  
-                  
-                    // In this tutorial we will listen to some events to change the state 
+                    // intro to form
                   
                   <div className="app-content">
-                        <h2> Hey! Ninjas</h2>
-                        <p> {Math.random() * 10}</p>
-                        <p> The name of the creator is: {this.state.name} and is age: {this.state.age}</p>
-                        <button onClick={this.handleClick}>Click Me</button>
-                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
-                        <p onCopy={this.handleCopy}>What we think, we become</p>
-                        </div>
+                        <h2> Hey! Ninjas {this.state.name}</h2>
+                        <form onSubmit={this.handleSubmit}>
+                        <input type="text" onChange={this.handleChange} />
+                        <button>Submit</button>
+                        </form>
+                    </div>
                 )
             }
         }
