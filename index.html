@@ -19,15 +19,32 @@
                 name: 'Akshit',
                 age: 25
             }
+            handleClick(e){
+                console.log("You clicked the button")
+            }
+            handleMouseOver(e){
+                console.log(e.target, e.pageX)
+            }
+            handleCopy(e){
+                console.log("Try something original once!");
+            }
             render() {
                 return (
                     //  Limitations in react only one root element
                     // class is a reserved key workd in JS thats  why we need to use className in react
-                    <div className="app-content">
+                    // Important thing about State whenever we change the state then the that conponent will rerender itself
+                  
+                  
+                    // In this tutorial we will listen to some events to change the state 
+                  
+                  <div className="app-content">
                         <h2> Hey! Ninjas</h2>
                         <p> {Math.random() * 10}</p>
                         <p> The name of the creator is: {this.state.name} and is age: {this.state.age}</p>
-                    </div>
+                        <button onClick={this.handleClick}>Click Me</button>
+                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                        <p onCopy={this.handleCopy}>What we think, we become</p>
+                        </div>
                 )
             }
         }
