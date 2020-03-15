@@ -1,12 +1,39 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div id="app"></div>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            // state is generally be in the constructor method .It is just a JS obeject
+            state = {
+                name: 'Akshit',
+                age: 25
+            }
+            render() {
+                return (
+                    //  Limitations in react only one root element
+                    // class is a reserved key workd in JS thats  why we need to use className in react
+                    <div className="app-content">
+                        <h2> Hey! Ninjas</h2>
+                        <p> {Math.random() * 10}</p>
+                        <p> The name of the creator is: {this.state.name} and is age: {this.state.age}</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));    
+    </script>
 </body>
+
 </html>
